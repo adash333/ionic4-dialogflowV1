@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Ionic4 Dialogflow v1 Chatbot
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let message of messages">
+      <ion-avatar slot="start">
+        <img [src]="message.avatar"/>
+      </ion-avatar>
+      <ion-label text-wrap>
+        <h2>{{message.content}}</h2>
+        <p>at {{message.timestamp | date : 'dd/MM/yyyy' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <p> </p>
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input type="text" [(ngModel)]="message.content"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button solid color="secondary" fill="outline" (click)="sendMessage()">Send</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
